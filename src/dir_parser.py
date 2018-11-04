@@ -13,10 +13,11 @@ class dir_parser:
   
   def result_table(self):
 
-    table = [ [" "] + self._questions]
+    table = [ [" "] + ["total"] + self._questions]
     users = sorted(self._result_matrix.keys())
     for usr in users:
-      table.append([usr] + self._result_matrix[usr])
+      res = self._result_matrix[usr]
+      table.append([usr] + [sum(res)] + res)
     
     return table
 
